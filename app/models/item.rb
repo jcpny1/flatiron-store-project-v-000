@@ -4,4 +4,10 @@ class Item < ActiveRecord::Base
   has_many :carts, through: :line_items
   has_many :order_items
   has_many :orders, through: :order_items
+
+  def self.available_items
+    Item.all.select { |item|
+      item.inventory > 0
+    }
+  end
 end
