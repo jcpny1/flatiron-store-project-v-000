@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
 
   has_many :carts
   has_many :orders
+
+  def current_cart=(cart)
+    @current_cart = cart
+  end
+
+  def current_cart
+    @current_cart
+  end
 end
