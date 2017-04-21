@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20170420182623) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
-    t.boolean  "submitted"
+    t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
