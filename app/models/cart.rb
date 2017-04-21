@@ -9,6 +9,16 @@ class Cart < ActiveRecord::Base
     line_item
   end
 
+  def checkout
+    self.line_items.each { |li|
+      item = Item.find(li.item_id)
+      item.update(inventory: (item.inventory - li.quantity))
+    }
+    self.line_items.destroy_all
+    self.user.current_cart = nil
+    self.user.save
+  end
+
   def total
     total_amount = 0.0
     self.line_items.each { |li|

@@ -3,15 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
   has_many :carts
+  belongs_to :current_cart, class_name: "Cart"
   has_many :orders
-
-  def current_cart=(cart)
-    @current_cart = cart
-  end
-
-  def current_cart
-    @current_cart
-  end
 end

@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20170420182623) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
+    t.boolean  "submitted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170420182623) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "current_cart_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
