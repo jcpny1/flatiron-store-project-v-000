@@ -6,7 +6,8 @@ class LineItemsController < ApplicationController
       current_user.current_cart = new_cart
       current_user.save
     end
-    current_user.current_cart.add_item(params[:item_id])
+    line_item = current_user.current_cart.add_item(params[:item_id])
+    line_item.save
     redirect_to current_user.current_cart
   end
 end
